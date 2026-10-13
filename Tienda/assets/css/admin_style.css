@@ -1,0 +1,786 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ------------------------------ */
+/*            RESET               */
+/* ------------------------------ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ------------------------------ */
+/*            BASE                */
+/* ------------------------------ */
+
+body {
+  background: #f8fafc;
+  color: #111827;
+  line-height: 1.6;
+}
+
+/* ------------------------------ */
+/*           DASHBOARD            */
+/* ------------------------------ */
+
+.dashboard {
+  padding: 120px 24px 40px;
+  min-height: 80vh;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.dashboard-header h1 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-header p {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* ------------------------------ */
+/*             GRID               */
+/* ------------------------------ */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ------------------------------ */
+/*            CARDS               */
+/* ------------------------------ */
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card h3 {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.stat-card span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ------------------------------ */
+/*           RESPONSIVE           */
+/* ------------------------------ */
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header h1 {
+    font-size: 22px;
+  }
+}
+/* ------------------------------ */
+/*      MOSTRAR PRODUCTOS         */
+/* ------------------------------ */
+
+.edit-product-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0; /* QUITA ESPACIO QUE PROVOCABA SCROLL */
+  z-index: 9999;
+
+  /* Ocultar scrollbar del modal */
+  overflow: hidden;
+}
+
+/* Caja del formulario */
+.edit-product-form form {
+  background: #fff;
+  padding: 22px;
+  width: 100%;
+  max-width: 380px; /* MÁS PEQUEÑO */
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  /* Para que no se salga */
+  max-height: 85vh;
+
+  /* Scroll interno SIN mostrar barras */
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+.edit-product-form form::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+/* Imagen dentro del modal */
+.edit-product-form img {
+  width: 180px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Inputs */
+.edit-product-form .box {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+}
+
+/* ------------------------------ */
+/*      RESPONSIVE PRODUCTO       */
+/* ------------------------------ */
+@media (max-width: 500px) {
+  .edit-product-form form {
+    max-width: 90%;
+  }
+}
+
+/* Botón cancelar */
+#close-update {
+  background: #555;
+  color: #fff;
+}
+#close-update:hover {
+  background: #333;
+}
+
+/* ------------------------------ */
+/*  FORMULARIO AGREGAR PRODUCTO   */
+/* ------------------------------ */
+
+.add-products {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.add-products form {
+  background: #fff;
+  padding: 18px;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Título */
+.add-products form h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Inputs */
+.add-products .box {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  font-size: 15px;
+}
+
+/* Botón */
+.btn {
+  width: 100%;
+  padding: 11px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #333;
+}
+
+/*--- CONTENEDOR GENERAL --- */
+.show-products {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.show-products .box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* --- TARJETA HORIZONTAL --- */
+.show-products .box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #ddd;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.show-products .box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* --- IMAGEN MÁS PEQUEÑA Y COMPLETA --- */
+.show-products .box img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #f8f8f8;
+  padding: 10px;
+}
+
+/* --- INFORMACIÓN DEL PRODUCTO --- */
+.product-info {
+  flex: 1;
+}
+
+.product-info .name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-info .price {
+  font-size: 17px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  font-size: 14px;
+  margin: 3px 0;
+  color: #444;
+}
+
+/* --- CONTENEDOR DE BOTONES --- */
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 150px;
+}
+
+.option-btn,
+.delete-btn {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.option-btn {
+  background: #333;
+  color: #fff;
+}
+
+.option-btn:hover {
+  background: #000;
+}
+
+.delete-btn {
+  background: #c62828;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #b71c1c;
+}
+
+/* ------------------------------ */
+/*       RESPONSIVE PRODUCTO      */
+/* ------------------------------ */
+@media (max-width: 600px) {
+  .show-products .box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-actions {
+    width: 100%;
+  }
+}
+
+/* ========================================= */
+/*        ESTILOS SOLO PARA ADMIN USERS      */
+/* ========================================= */
+
+/* =======================
+   FORMULARIO CREAR USUARIO
+   ======================= */
+
+.add-user-form {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.add-user-form .form-container {
+  background: #fff;
+  padding: 18px;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.add-user-form .form-container h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.add-user-form .box {
+  width: 100%;
+  padding: 9px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+  font-size: 15px;
+}
+
+.add-user-form .btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.add-user-form .btn:hover {
+  opacity: 0.85;
+}
+
+/* Contenedor general */
+.users-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Tarjeta individual del usuario */
+.user-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.25s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Texto dentro de cada tarjeta */
+.user-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.user-card span {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Estilo del rol */
+.role {
+  padding: 4px 10px;
+  background: #eee;
+  border-radius: 6px;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Colores por rol */
+.role.admin {
+  background: #ffe2b5;
+  color: #b96d00;
+}
+
+.role.user {
+  background: #d5e8ff;
+  color: #0056b3;
+}
+
+/* Contenedor de botones */
+.user-card .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 10px;
+}
+
+/* Botón de editar */
+.edit-btn {
+  flex: 1;
+  background: #111;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: #333;
+}
+
+/* Botón eliminar */
+.delete-btn-user {
+  flex: 1;
+  background: #c62828;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.delete-btn-user:hover {
+  background: #b71c1c;
+}
+
+/* ===========================
+    MODAL EDITAR USUARIOS
+   =========================== */
+
+.edit-user-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 99999;
+}
+
+.edit-user-modal form {
+  background: #fff;
+  padding: 22px;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  max-height: 85vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.edit-user-modal form::-webkit-scrollbar {
+  display: none;
+}
+
+.edit-user-modal .box {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+}
+
+.close-user-modal {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  font-size: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cancel-btn {
+  margin-top: 8px;
+  background: #555 !important;
+}
+
+.cancel-btn:hover {
+  background: #333 !important;
+}
+.edit-user-modal.active {
+  display: flex !important;
+}
+
+/* ============================
+   SECCIÓN DE MENSAJES (ADMIN)
+=============================== */
+
+.messages {
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.messages .title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #000;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.messages .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.messages .box {
+  background: #111; /* Fondo negro */
+  padding: 1.8rem;
+  border-radius: 10px;
+  border: 1px solid #333; /* Borde gris oscuro */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.messages .box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.messages p {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: #ccc;
+}
+
+.messages p span {
+  color: #fff; /* Texto más claro */
+  font-weight: 600;
+}
+
+.empty {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #555; /* Gris */
+}
+
+/* BOTÓN ELIMINAR */
+.delete-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #555; /* Gris #555 */
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #000; /* Negro */
+}
+/* ===============================
+   ESTILOS SOLO PARA ÓRDENES
+   =============================== */
+
+.orders {
+  padding: 40px 20px;
+}
+
+.orders .title {
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #111;
+  text-transform: uppercase;
+}
+
+/* CONTENEDOR */
+.orders .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* TARJETA DE ORDEN */
+.orders .box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.25s ease;
+}
+
+.orders .box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* TEXTO */
+.orders .box p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #444;
+}
+
+.orders .box p span {
+  color: #000;
+  font-weight: 600;
+}
+
+/* SELECT ESTADO */
+.orders .box select {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  font-size: 14px;
+}
+
+/* BOTÓN ACTUALIZAR */
+.orders .option-btn {
+  width: 100%;
+  padding: 9px;
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.orders .option-btn:hover {
+  background: #000;
+}
+
+/* BOTÓN ELIMINAR */
+.orders .delete-btn {
+  width: 100%;
+  margin-top: 8px;
+  display: block;
+  text-align: center;
+  padding: 9px;
+  background: #c62828;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.orders .delete-btn:hover {
+  background: #b71c1c;
+}
+
+/* MENSAJE VACÍO */
+.orders .empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 25px;
+  background: #f3f3f3;
+  border-radius: 10px;
+  color: #555;
+  font-size: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .orders .title {
+    font-size: 22px;
+  }
+
+  .orders .box {
+    padding: 14px;
+  }
+}

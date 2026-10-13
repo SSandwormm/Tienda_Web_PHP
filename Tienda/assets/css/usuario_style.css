@@ -1,0 +1,886 @@
+/* ===============================
+   usuario_style.css (LIMPIO)
+   SOLO PÁGINAS PRINCIPALES
+   home.php | about.php | shop.php | search_page.php | contact.php
+   =============================== */
+
+/* =========================
+   RESET BÁSICO
+========================= */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f3f3f3;
+}
+/* =========================
+  (home.php) – AJUSTADO
+========================= */
+/* =========================
+   BLOCK MODEL
+========================= */
+.block-model {
+  display: flex;
+  gap: 24px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* =========================
+   HERO CARD
+========================= */
+.hero-card {
+  position: relative;
+  flex: 1;
+  background: transparent;
+  border-radius: 32px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   IMAGEN
+========================= */
+.hero-card img {
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 24px;
+}
+
+/* =========================
+   TEXTO SUPERIOR
+========================= */
+.hero-text-top {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+}
+
+/* =========================
+   TEXTO INFERIOR
+========================= */
+.hero-bottom {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+}
+
+.hero-bottom h1 {
+  font-size: 88px;
+  font-weight: 700;
+  letter-spacing: -4px;
+  color: #111;
+}
+
+/* =========================
+   NOMBRE DERECHA
+========================= */
+.hero-card .name {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  font-size: 88px;
+  font-weight: 700;
+  letter-spacing: -4px;
+  color: #111;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .block-model {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-card {
+    padding: 24px;
+  }
+
+  .hero-bottom h1,
+  .hero-card .name {
+    font-size: 48px;
+  }
+}
+.hero {
+  position: relative;
+  height: 40vh; /* hero más corto */
+  min-height: 300px;
+  width: 100%;
+  background-image: url("../images/img_index.png");
+  background-position: center 45%; /* 🔹 mover la imagen un poco hacia abajo */
+  background-size: 120% auto; /* ancho más grande */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.45)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+
+  width: 320px;
+  max-width: 90%;
+  padding: 1.2rem 1rem;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+  word-wrap: break-word;
+}
+
+.hero-content p {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.hero-btn:hover {
+  background: #444;
+}
+/* =========================
+   BENEFICIOS CAMISETA
+========================= */
+
+.benefits-section {
+  padding: 70px 20px;
+  background: #fff;
+}
+
+.benefits-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.benefits-subtitle {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #777;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.benefits-header h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.benefits-header p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* LAYOUT PRINCIPAL */
+.benefits-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* COLUMNAS */
+.benefits-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 260px;
+}
+
+/* TARJETAS */
+.benefit-card {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 25px 20px;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-card h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.benefit-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* IMAGEN CENTRAL */
+.benefits-image {
+  width: 320px;
+}
+
+.benefits-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5%;
+}
+/* =========================
+   SECCIÓN ZAPATILLAS
+========================= */
+
+.shoes-section {
+  padding: 80px 20px;
+  background: transparent;
+}
+
+.shoes-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+/* IMAGEN PRINCIPAL */
+.shoes-image-main {
+  position: relative;
+  width: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.shoes-image-main img {
+  width: 120%;
+  display: block;
+}
+
+/* BADGE */
+.shoes-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+/* CONTENIDO */
+.shoes-content {
+  max-width: 500px;
+}
+
+.shoes-content h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.shoes-content p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* BOTÓN */
+.shoes-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+  transition: 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.shoes-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* GALERÍA */
+.shoes-gallery {
+  display: flex;
+  gap: 20px;
+}
+
+.shoe-card {
+  width: 140px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.shoe-card img {
+  width: 100%;
+  display: block;
+}
+
+/* =========================
+   PRODUCTOS (home / shop)
+========================= */
+.products {
+  padding: 40px 20px;
+}
+
+.products .title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.products .box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.products .image {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.products .name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.products .price {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.products .stock,
+.products .talla {
+  font-size: 14px;
+  color: #555;
+}
+
+.products .qty,
+.products select {
+  width: 60px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  margin-bottom: 10px;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* =========================
+   INFO SECTIONS (home)
+========================= */
+.info-section {
+  padding: 80px 20px;
+}
+
+.info-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.info-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10%;
+}
+
+.info-badge {
+  font-size: 13px;
+  font-weight: 600;
+  color: #777;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.info-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.info-desc,
+.info-list li {
+  font-size: 16px;
+  color: #555;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.info-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   ABOUT / SOBRE GOAT
+========================= */
+
+.about-clean {
+  padding: 80px 20px;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-badge {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #777;
+  font-weight: 600;
+}
+
+.about-content h1 {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.about-content h1 span {
+  color: #111;
+  font-weight: 900;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  max-width: 520px;
+}
+
+.about-btn {
+  width: fit-content;
+  margin-top: 10px;
+  padding: 14px 32px;
+  border: 1px solid #111;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* IMAGEN */
+.about-image {
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 420px;
+  object-fit: contain;
+  border-radius: 5%;
+}
+
+/* =========================
+   TIENDA FÍSICA
+========================= */
+
+.stores-section {
+  padding: 90px 20px;
+}
+
+.stores-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Imagen */
+.stores-image-single {
+  display: flex;
+  justify-content: center;
+}
+
+.stores-image-single img {
+  width: 100%;
+  max-width: 440px;
+  object-fit: contain;
+}
+
+/* Contenido */
+.stores-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stores-badge {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #777;
+  font-weight: 600;
+}
+
+.stores-content h2 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stores-desc {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.stores-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.stores-list li {
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stores-list i {
+  color: #111;
+  font-size: 16px;
+}
+
+/* Botón */
+.stores-btn {
+  width: fit-content;
+  margin-top: 10px;
+  padding: 14px 32px;
+  border: 1px solid #111;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.stores-btn:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .about-container,
+  .stores-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-content p,
+  .stores-desc {
+    margin: auto;
+  }
+
+  .about-btn,
+  .stores-btn {
+    margin: auto;
+  }
+}
+
+/* =========================
+   STORES (about.php)
+========================= */
+.stores-section {
+  padding: 90px 20px;
+}
+
+.stores-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.stores-image-single img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+.stores-content h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.stores-desc {
+  font-size: 16px;
+  color: #555;
+}
+
+/* =========================
+   SEARCH PAGE
+========================= */
+.search-page {
+  padding: 20px;
+}
+
+/* BUSCADOR (NO MODIFICADO) */
+.search-form form {
+  display: flex;
+  gap: 8px;
+  max-width: 520px;
+  margin: 30px auto;
+}
+
+.search-form .box {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* =========================
+   SEARCH EMPTY STATE
+========================= */
+.search-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 35px;
+  gap: 8px;
+}
+
+.search-empty-state img {
+  width: 120px;
+  height: auto;
+  opacity: 0.85;
+}
+
+.search-empty-state p {
+  font-size: 15px;
+  color: #777;
+  letter-spacing: 0.3px;
+}
+
+/* =========================
+   RESULTADOS
+========================= */
+.search-results {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.search-box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.search-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.search-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 0;
+  font-size: 18px;
+  color: #777;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 480px) {
+  .search-empty-state img {
+    width: 100px;
+  }
+
+  .search-empty-state p {
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== FORM ===== */
+.contact form {
+  width: 100%;
+  max-width: 430px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== MENSAJE ENVIADO ===== */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 2px; /* MÁS PEGADO */
+}
+
+.contact-success img {
+  width: 130px;
+  opacity: 0.85;
+}
+
+.contact-success p {
+  font-size: 13px;
+  color: #2ecc71;
+  margin-top: 0; /* QUITA SEPARACIÓN EXTRA */
+  line-height: 1.2; /* TEXTO MÁS COMPACTO */
+}
+
+/* ===== TITLE ===== */
+.contact form h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ===== INPUTS ===== */
+.contact form .box,
+.contact form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.contact form .box:focus,
+.contact form textarea:focus {
+  border-color: #000;
+  outline: none;
+}
+
+/* ===== BOTÓN ===== */
+.contact form .btn {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  margin-top: 12px;
+}
+
+.contact form .btn:hover {
+  background: #333;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 480px) {
+  .contact-success img {
+    width: 70px;
+  }
+}

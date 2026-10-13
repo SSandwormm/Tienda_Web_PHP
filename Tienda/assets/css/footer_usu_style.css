@@ -1,0 +1,80 @@
+/* ===========================
+    FOOTER GENERAL
+=========================== */
+
+footer {
+  background: #111; /* Negro principal */
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+  border-top: 2px solid #222; /* Línea elegante */
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===========================
+    CAJAS DEL FOOTER
+=========================== */
+
+.footer-box h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+  border-left: 4px solid #555; /* Toque gris */
+  padding-left: 8px;
+}
+
+/* Enlaces */
+.footer-box a {
+  display: block;
+  color: #ccc;
+  margin-bottom: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-box a i {
+  margin-right: 6px;
+}
+
+/* Hover enlaces */
+.footer-box a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+/* Texto de contacto */
+.footer-box p {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Íconos */
+.footer-box p i,
+.footer-box a i {
+  color: #555;
+}
+
+/* ===========================
+    CRÉDITO FINAL
+=========================== */
+
+.footer-credit {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+}
+
+.footer-credit p {
+  color: #777;
+  font-size: 13px;
+}
